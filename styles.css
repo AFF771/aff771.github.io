@@ -1,0 +1,18 @@
+body {
+    background-color: #222; /* Dark background color */
+    color: #fff; /* Light text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+}
+
+h1 {   
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:200;
+    font-style: normal;
+    font-size: 5em;
+    text-align: center;
+}
