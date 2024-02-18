@@ -24,7 +24,7 @@
                     <img src="content/profile.png" alt="me" width="auto" height="auto" style="width: 100%; height: 100%;">
                 </div>
                 <div style="display: inline-block;">
-                    <h1>PORTFOLIO</h1>
+                    <h1>ANTÓNIO <br> FREITAS</h1>
                     <label class="switch" >
                         <input type="checkbox">
                         <span class="slider round" onclick="toggleDarkMode()"></span>
@@ -63,90 +63,115 @@
 
         <div></div>
 
-        <div class="projects-grid-container" >
-            
-                <div class="projects-grid" style="grid-area: a;">
-                  <div class="content">
+        <div class="rigth-side-container">
+
+            <div class="projects-grid-container visible" id="project-categories">
+                
+                    <div class="projects-grid" style="grid-area: a;" onclick="openCategory(0)">
+                    <div class="content">
+                        <div class="icon">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="text">
+                        <h3>GRAPHIC DESIGN</h3>
+                        <h5>• • •</h5>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="projects-grid" style="grid-area: b;" onclick="openCategory(1)">
+                    <div class="content">
+                        <div class="icon">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="text">
+                        <h3>MOTION GRAPHICS</h3>
+                        <h5>• •</h5>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="projects-grid" style="grid-area: c;" onclick="openCategory(2)">
+                    <div class="content">
+                        <div class="icon">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="text">
+                        <h3>3D MODELING & ANIMATION</h3>
+                        <h5>• • •</h5>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="projects-grid" style="grid-area: d;" onclick="openCategory(3)">
+                    <div class="content">
                     <div class="icon">
                         <span class="material-symbols-outlined">
                             deployed_code
                         </span>
                     </div>
                     <div class="text">
-                      <h3>GRAPHIC DESIGN</h3>
-                      <h5>• • •</h5>
+                        <h3>GAMES</h3>
+                        <h5>• •</h5>
                     </div>
-                  </div>
+                    </div>
                 </div>
-                <div class="projects-grid" style="grid-area: b;">
-                  <div class="content">
+                <div class="projects-grid" style="grid-area: e;" onclick="openCategory(4)">
+                    <div class="content">
                     <div class="icon">
                         <span class="material-symbols-outlined">
                             deployed_code
                         </span>
                     </div>
                     <div class="text">
-                      <h3>MOTION GRAPHICS</h3>
-                      <h5>• •</h5>
+                        <h3>VR APPS</h3>
+                        <h5>• •</h5>
                     </div>
-                  </div>
+                    </div>
                 </div>
-                <div class="projects-grid" style="grid-area: c;">
-                  <div class="content">
+                <div class="projects-grid" style="grid-area: f;" onclick="openCategory(5)">
+                    <div class="content">
                     <div class="icon">
                         <span class="material-symbols-outlined">
                             deployed_code
                         </span>
                     </div>
                     <div class="text">
-                      <h3>3D MODELING & ANIMATION</h3>
-                      <h5>• • •</h5>
+                        <h3>WEB DESIGN</h3>
+                        <h5>•</h5>
                     </div>
-                  </div>
+                    </div>
                 </div>
-                <div class="projects-grid" style="grid-area: d;">
-                <div class="content">
-                  <div class="icon">
-                    <span class="material-symbols-outlined">
-                        deployed_code
-                    </span>
-                  </div>
-                  <div class="text">
-                    <h3>GAMES</h3>
-                    <h5>• •</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="projects-grid" style="grid-area: e;">
-                <div class="content">
-                  <div class="icon">
-                    <span class="material-symbols-outlined">
-                        deployed_code
-                    </span>
-                  </div>
-                  <div class="text">
-                    <h3>VR APPS</h3>
-                    <h5>• •</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="projects-grid" style="grid-area: f;">
-                <div class="content">
-                  <div class="icon">
-                    <span class="material-symbols-outlined">
-                        deployed_code
-                    </span>
-                  </div>
-                  <div class="text">
-                    <h3>WEB DESIGN</h3>
-                    <h5>•</h5>
-                  </div>
-                </div>
-              </div>
+
+            </div>
+
+            <div class="graphic-design-container hidden" ide="graphic-design">
+                <p> graphic design content</p>
+            </div>
+
+            <script>
+                // Project categories are index from 0-5
+                function openCategory(index){
+                    var projectCategories = document.getElementById('project-categories');
+                    var graphicDesignContent = document.getElementById('graphic-design');
+
+                    // Toggle visibility by adding/removing classes
+                    projectCategories.classList.toggle('visible');
+                    projectCategories.classList.toggle('hidden');
+
+                    graphicDesignContent.classList.toggle('visible');
+                    graphicDesignContent.classList.toggle('hidden');
+                }
+
+                function goBack(){
+
+                }
+            </script>
 
         </div>
-
-    </div>
 
 </body>
 </html>
