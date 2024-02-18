@@ -10,8 +10,143 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 </head>
-<body>
-    <h1>My Portfolio</h1>
+<body> 
+
+    <div class = "grid-container">
+
+        <div>
+            <div>
+                <div class="profile-container">
+                    <img src="content/profile.png" alt="me" width="auto" height="auto" style="width: 100%; height: 100%;">
+                </div>
+                <div style="display: inline-block;">
+                    <h1>PORTFOLIO</h1>
+                    <label class="switch" >
+                        <input type="checkbox">
+                        <span class="slider round" onclick="toggleDarkMode()"></span>
+                    </label>
+                </div> 
+            </div>
+            <div style="margin-top: 50px;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac est euismod, bibendum libero in, 
+                    auctor ex. Nulla facilisi. Phasellus nec tincidunt mauris. Nullam vel velit a nisi volutpat eleifend.
+                     Fusce eget lacus id elit ultrices fermentum. Curabitur vel nisl a nunc vestibulum condimentum. Integer 
+                     hendrerit efficitur quam, eu feugiat nulla fermentum vitae. Nam nec fermentum tellus. Nulla facilisi. 
+                     Aenean luctus, sem ut tristique interdum, sem ligula tincidunt libero, in vulputate risus ligula id justo.</p>
+            </div>
+     
+        </div>
+
+        <script>
+            function toggleDarkMode() {
+                // Get the current color values from the root element
+                const currentColors = [];
+                for (let i = 0; i < 5; i++){
+                    var colorName = '--grey-' + i.toString()
+                    currentColors[i] = getComputedStyle(document.documentElement).getPropertyValue(colorName).trim();
+                }
+
+                const darkModeColors = ['#e0e0e0','#111', '#222', '#333', '#444']
+                const lightModeColors = ['#222', '#e0e0e0', '#cccc', '#bababa', '#a8a8a8']
+
+                for (let i = 0; i < 5; i++){
+                    var colorName = '--grey-' + i.toString()
+                    var newColor = (currentColors[i] === darkModeColors[i]) ? lightModeColors[i] : darkModeColors[i];
+                    document.documentElement.style.setProperty(colorName, newColor);
+                }
+            }
+        </script>
+
+        <div></div>
+
+        <div class="projects-grid-container" >
+            
+                <div class="projects-grid" style="grid-area: a;">
+                  <div class="content">
+                    <div class="icon">
+                        <span class="material-symbols-outlined">
+                            deployed_code
+                        </span>
+                    </div>
+                    <div class="text">
+                      <h3>GRAPHIC DESIGN</h3>
+                      <h5>• • •</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="projects-grid" style="grid-area: b;">
+                  <div class="content">
+                    <div class="icon">
+                        <span class="material-symbols-outlined">
+                            deployed_code
+                        </span>
+                    </div>
+                    <div class="text">
+                      <h3>MOTION GRAPHICS</h3>
+                      <h5>• •</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="projects-grid" style="grid-area: c;">
+                  <div class="content">
+                    <div class="icon">
+                        <span class="material-symbols-outlined">
+                            deployed_code
+                        </span>
+                    </div>
+                    <div class="text">
+                      <h3>3D MODELING & ANIMATION</h3>
+                      <h5>• • •</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="projects-grid" style="grid-area: d;">
+                <div class="content">
+                  <div class="icon">
+                    <span class="material-symbols-outlined">
+                        deployed_code
+                    </span>
+                  </div>
+                  <div class="text">
+                    <h3>GAMES</h3>
+                    <h5>• •</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="projects-grid" style="grid-area: e;">
+                <div class="content">
+                  <div class="icon">
+                    <span class="material-symbols-outlined">
+                        deployed_code
+                    </span>
+                  </div>
+                  <div class="text">
+                    <h3>VR APPS</h3>
+                    <h5>• •</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="projects-grid" style="grid-area: f;">
+                <div class="content">
+                  <div class="icon">
+                    <span class="material-symbols-outlined">
+                        deployed_code
+                    </span>
+                  </div>
+                  <div class="text">
+                    <h3>WEB DESIGN</h3>
+                    <h5>•</h5>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+
+    </div>
+
 </body>
 </html>
