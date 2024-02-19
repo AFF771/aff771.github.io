@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fading Carousel</title>
+  <style>
+    .carousel {
+        position: relative;
+        width: 300px; /* Adjust the width as per your requirement */
+        height: 200px; /* Adjust the height as per your requirement */
+        margin: 0 auto;
+    }
+
+    .carousel-item {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: #ccc; /* Grey background */
+        transition: opacity 1s ease-in-out;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
+    }
+
+    .scrollable-content{
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        width: 100%;
+        background: #F5F5F5;
+        margin-bottom: 25px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: left;
+    }
+
+    .carousel-buttons {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel-item active">
+    <h1>Projects Gallery</h1>
+  </div>
+  <div class="carousel-item" >
+    <div class="scrollable-content">
+        <h1>Graphic Design</h1>
+        <p>This HTML scroll box has had color added. 
+            You can add color to the background of your scroll box.
+            You can also add color to the scroll bars.
+            This HTML scroll box has had color added. 
+            You can add color to the background of your scroll box.
+            You can also add color to the scroll bars.
+            This HTML scroll box has had color added. 
+            You can add color to the background of your scroll box.
+            You can also add color to the scroll bars.</p>
+        </div>
+  </div>
+  <div class="carousel-item">
+    <h1>Motion Graphics</h1>
+  </div>
+  <div class="carousel-item">
+    <h1>3D Modeling and Animation</h1>
+  </div>
+  <div class="carousel-item">
+    <h1>Games</h1>
+  </div>
+</div>
+
+<div class="carousel-buttons">
+    <button onclick="showGallery()">Projects Gallery</button>
+    <button onclick="openCategory(1)">Graphic Design</button>
+    <button onclick="openCategory(2)">Motion Graphics</button>
+    <button onclick="openCategory(3)">3D Modeling and Animation</button>
+    <button onclick="openCategory(4)">Games</button>
+</div>
+
+<script>
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+
+    function showItem(index) {
+      carouselItems.forEach((item, i) => {
+        if (i === index) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    function showGallery() {
+      currentIndex = 0;
+      showItem(currentIndex);
+    }
+
+    function openCategory(indx) {
+      currentIndex = indx;
+      showItem(currentIndex);
+    }
+
+    // Initial show
+    showItem(currentIndex);
+</script>
+
+</body>
+</html>
