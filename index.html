@@ -23,12 +23,17 @@
                 <div class="profile-container">
                     <img src="content/profile.png" alt="me" width="auto" height="auto" style="width: 100%; height: 100%;">
                 </div>
-                <div style="display: inline-block;">
-                    <h1>ANTÓNIO <br> FREITAS</h1>
-                    <label class="switch" >
-                        <input type="checkbox">
-                        <span class="slider round" onclick="toggleDarkMode()"></span>
-                    </label>
+                <div style="display: inline-block; vertical-align: top;">
+                    <h1 style="margin: 1rem 0 1rem;">MY PORTFOLIO</h1>
+                    <div style="height: 2.2rem; vertical-align: top;">
+                        <label class="switch" >
+                            <input type="checkbox" id="darkModeSwitch">
+                            <span class="slider round" onclick="toggleDarkMode()"></span>
+                        </label>
+                        <a class="change-language" href="index_pt.html" style="text-align: center; display: inline-block; line-height: 2.2rem;" onclick="enableSaveDarkMode()">
+                            <p style="font-weight: 300;">PT</p>
+                        </a>
+                    </div>
                 </div> 
             </div>
             <div style="margin-top: 50px;">
@@ -42,7 +47,36 @@
         </div>
 
         <script>
+
+            // SAVE DARK MODE WHEN MOVING BETWEEN PAGES
+
+            var darkModeOn = true;
+            var saveDarkMode = false;
+
+            window.onload = function(){
+                var darkModeStored = localStorage.getItem('darkModeOn');
+                darkModeOn = darkModeStored ? JSON.parse(darkModeStored) : true;
+
+                if (darkModeOn === false){
+                    toggleDarkMode();
+
+                    var switchElement = document.getElementById('darkModeSwitch')
+                    switchElement.checked = !switchElement.checked;
+                }
+            }
+            function enableSaveDarkMode(){
+                saveDarkMode = true;
+            }
+            function deleteLocalStorageVariables(){
+                if (!saveDarkMode){
+                    localStorage.removeItem('darkModeOn');
+                    console.log("window closed")
+                }
+            } 
+            window.addEventListener('beforeunload', deleteLocalStorageVariables);
+
             function toggleDarkMode() {
+
                 // Get the current color values from the root element
                 const currentColors = [];
                 for (let i = 0; i < 5; i++){
@@ -53,6 +87,9 @@
                 const darkModeColors = ['#e0e0e0','#111', '#222', '#333', '#444']
                 const lightModeColors = ['#222', '#e0e0e0', '#cccc', '#bababa', '#a8a8a8']
 
+                darkModeOn = (currentColors[0] === darkModeColors[0]) ? false : true;
+                localStorage.setItem('darkModeOn', darkModeOn);
+                
                 for (let i = 0; i < 5; i++){
                     var colorName = '--grey-' + i.toString()
                     var newColor = (currentColors[i] === darkModeColors[i]) ? lightModeColors[i] : darkModeColors[i];
@@ -114,7 +151,7 @@
                         <div class="projects-grid" style="grid-area: c;" onclick="openCategory(3)">
                             <div class="content">
                                 <div class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.39 76.43" width="5rem" height="5rem">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.39 76.43" width="5.8rem" height="5.8rem">
                                         <path class="a"
                                             d="M83.21,63.68l-1.72.53,2.17,7.08L66.88,61.6V35.4L44.19,22.3V3.72l5.05,5.42,1.31-1.22L43.19,0,35.83,7.92l1.32,1.22,5-5.42V22.3L19.5,35.4V61.6L2.72,71.29,4.9,64.21l-1.72-.53L0,74l10.54,2.42.4-1.76L3.72,73,20.5,63.33l22.69,13.1,22.69-13.1L82.67,73l-7.22,1.66.4,1.75L86.39,74Zm-40-15.76L22.5,36,43.19,24,63.88,36ZM21.5,37.71,42.19,49.65v23.9L21.5,61.6ZM44.19,73.55V49.65L64.88,37.71V61.6Z" />
                                     </svg>
@@ -232,7 +269,8 @@
                     </button>
                     <div class="graphic-design-container scrollable-content" id="graphic-design">
                         <h1>MotionGraphics</h1>
-                        <p>This HTML scroll box has had color added. 
+                        <br>
+                        <h1>This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
                             This HTML scroll box has had color added. 
@@ -241,7 +279,14 @@
                             This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
-                        </p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed ac est euismod, bibendum libero in, auctor ex. Nulla facilisi. 
+                            Phasellus nec tincidunt mauris. Nullam vel velit a nisi volutpat eleifend.
+                             Fusce eget lacus id elit ultrices fermentum. Curabitur vel nisl a nunc vestibulum 
+                             condimentum. Integer hendrerit efficitur quam, eu feugiat nulla fermentum vitae. 
+                             Nam nec fermentum tellus. Nulla facilisi. Aenean luctus, sem ut tristique interdum, 
+                             sem ligula tincidunt libero, in vulputate risus ligula id justo.
+                        </h1>
                     </div>
                 </div> 
 
@@ -254,7 +299,8 @@
                     </button>
                     <div class="graphic-design-container scrollable-content" id="graphic-design">
                         <h1>3D</h1>
-                        <p>This HTML scroll box has had color added. 
+                        <br>
+                        <h1>This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
                             This HTML scroll box has had color added. 
@@ -263,7 +309,14 @@
                             This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
-                        </p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed ac est euismod, bibendum libero in, auctor ex. Nulla facilisi. 
+                            Phasellus nec tincidunt mauris. Nullam vel velit a nisi volutpat eleifend.
+                             Fusce eget lacus id elit ultrices fermentum. Curabitur vel nisl a nunc vestibulum 
+                             condimentum. Integer hendrerit efficitur quam, eu feugiat nulla fermentum vitae. 
+                             Nam nec fermentum tellus. Nulla facilisi. Aenean luctus, sem ut tristique interdum, 
+                             sem ligula tincidunt libero, in vulputate risus ligula id justo.
+                        </h1>
                     </div>
                 </div> 
 
@@ -276,7 +329,8 @@
                     </button>
                     <div class="graphic-design-container scrollable-content" id="graphic-design">
                         <h1>Games</h1>
-                        <p>This HTML scroll box has had color added. 
+                        <br>
+                        <h1>This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
                             This HTML scroll box has had color added. 
@@ -285,7 +339,14 @@
                             This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
-                        </p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed ac est euismod, bibendum libero in, auctor ex. Nulla facilisi. 
+                            Phasellus nec tincidunt mauris. Nullam vel velit a nisi volutpat eleifend.
+                             Fusce eget lacus id elit ultrices fermentum. Curabitur vel nisl a nunc vestibulum 
+                             condimentum. Integer hendrerit efficitur quam, eu feugiat nulla fermentum vitae. 
+                             Nam nec fermentum tellus. Nulla facilisi. Aenean luctus, sem ut tristique interdum, 
+                             sem ligula tincidunt libero, in vulputate risus ligula id justo.
+                        </h1>
                     </div>
                 </div> 
 
@@ -298,7 +359,8 @@
                     </button>
                     <div class="graphic-design-container scrollable-content" id="graphic-design">
                         <h1>VR Apps</h1>
-                        <p>This HTML scroll box has had color added. 
+                        <br>
+                        <h1>This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
                             This HTML scroll box has had color added. 
@@ -307,7 +369,14 @@
                             This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
-                        </p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed ac est euismod, bibendum libero in, auctor ex. Nulla facilisi. 
+                            Phasellus nec tincidunt mauris. Nullam vel velit a nisi volutpat eleifend.
+                             Fusce eget lacus id elit ultrices fermentum. Curabitur vel nisl a nunc vestibulum 
+                             condimentum. Integer hendrerit efficitur quam, eu feugiat nulla fermentum vitae. 
+                             Nam nec fermentum tellus. Nulla facilisi. Aenean luctus, sem ut tristique interdum, 
+                             sem ligula tincidunt libero, in vulputate risus ligula id justo.
+                        </h1>
                     </div>
                 </div> 
 
@@ -320,7 +389,8 @@
                     </button>
                     <div class="graphic-design-container scrollable-content" id="graphic-design">
                         <h1>WebDesign</h1>
-                        <p>This HTML scroll box has had color added. 
+                        <br>
+                        <h1>This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
                             This HTML scroll box has had color added. 
@@ -329,7 +399,14 @@
                             This HTML scroll box has had color added. 
                             You can add color to the background of your scroll box.
                             You can also add color to the scroll bars.
-                        </p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                            Sed ac est euismod, bibendum libero in, auctor ex. Nulla facilisi. 
+                            Phasellus nec tincidunt mauris. Nullam vel velit a nisi volutpat eleifend.
+                             Fusce eget lacus id elit ultrices fermentum. Curabitur vel nisl a nunc vestibulum 
+                             condimentum. Integer hendrerit efficitur quam, eu feugiat nulla fermentum vitae. 
+                             Nam nec fermentum tellus. Nulla facilisi. Aenean luctus, sem ut tristique interdum, 
+                             sem ligula tincidunt libero, in vulputate risus ligula id justo.
+                        </h1>
                     </div>
                 </div> 
             </div>
@@ -362,10 +439,6 @@
                 // Initial show
                 showItem(currentIndex);
 
-                function printIndex() {
-                    console.log(currentIndex);
-                }
-                setInterval(printIndex, 50);
             </script>
 
         </div>
