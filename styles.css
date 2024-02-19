@@ -48,8 +48,8 @@ body {
 }
 
 .profile-container{
-    width: 12vw;
-    height: auto;
+    width: auto;
+    height: 12rem;
     background-image: linear-gradient(45deg, var(--grey-2), var(--grey-1));
     border-radius: 50%;
     margin-right: 2rem;
@@ -180,6 +180,7 @@ button,a:hover{
     padding: 10px 20px;
     position:fixed;
     margin-left: -6rem;
+    background-color: var(--grey-2);
 }
 
 .change-language{
@@ -189,6 +190,23 @@ button,a:hover{
     vertical-align: top;
     margin-left: 1.6rem;
     font-size: 1rem;
+    background-color: var(--grey-3);
+}
+
+.cv-icon{
+    fill: var(--grey-3);
+    width: auto;
+    height: 100%;
+    background-color: #00000000;
+}
+.cv-icon svg{
+    transition: fill 0.3s ease;
+}
+.cv-icon:hover{
+    background-color: #00000000;
+}
+.cv-icon:hover svg{
+    fill: var(--grey-0);
 }
 
 h1 {   
@@ -196,6 +214,15 @@ h1 {
     color: var(--grey-0);
     font-optical-sizing: auto;
     font-weight: 300;
+    font-style: normal;
+    text-align: left;
+}
+
+h2{
+    font-size: 1.6rem;
+    color: var(--grey-0);
+    font-optical-sizing: auto;
+    font-weight: 500;
     font-style: normal;
     text-align: left;
 }
